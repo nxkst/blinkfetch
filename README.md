@@ -4,6 +4,8 @@ The fetch tool for Linux written in Go.
 
 I am learning go and it's my first open source project.
 
+![](./screenshots/blinkfetch.png)
+
 ## Installation
 
 You need to have Go on your system to install Blinkfetch.
