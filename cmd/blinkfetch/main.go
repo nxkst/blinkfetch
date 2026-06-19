@@ -25,6 +25,12 @@ func main() {
 		fmt.Sprintf("\033[36muptime:\033[0m %s",
 			information.FormattedUptime,
 		),
+		fmt.Sprintf("\033[36mde:\033[0m %s",
+			information.Desktop,
+		),
+		fmt.Sprintf("\033[36mshell:\033[0m %s",
+			information.Shell,
+		),
 	}
 
 	fmt.Print(ui.FormatOutput(ASCIIArt, header, info))

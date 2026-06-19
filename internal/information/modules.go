@@ -9,4 +9,6 @@ var (
 	Kernel, _       = GetKernel()
 	Uptime, _       = GetUptime()
 	FormattedUptime = ui.FormatTime(Uptime)
+	Desktop         = GetDesktop()
+	Shell           = GetShell()
 )
