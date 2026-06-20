@@ -8,30 +8,31 @@ import (
 
 func main() {
 	ASCIIArt := ui.FormatASCII()
+	yellow := "\x1b[33m"
 
 	header := fmt.Sprintf(
-		"%s@%s",
+		"\033[0m%s@%s",
 		information.Username, information.Hostname,
 	)
 
 	info := []string{
 		"──────────────",
-		fmt.Sprintf("\033[36mos:\033[0m %s",
+		fmt.Sprintf(yellow+"os:\033[0m %s",
 			information.Distro,
 		),
-		fmt.Sprintf("\033[36mkernel:\033[0m %s",
+		fmt.Sprintf(yellow+"kernel:\033[0m %s",
 			information.Kernel,
 		),
-		fmt.Sprintf("\033[36muptime:\033[0m %s",
+		fmt.Sprintf(yellow+"uptime:\033[0m %s",
 			information.FormattedUptime,
 		),
-		fmt.Sprintf("\033[36mde:\033[0m %s",
+		fmt.Sprintf(yellow+"de:\033[0m %s",
 			information.Desktop,
 		),
-		fmt.Sprintf("\033[36mshell:\033[0m %s",
+		fmt.Sprintf(yellow+"shell:\033[0m %s",
 			information.Shell,
 		),
-		fmt.Sprintf("\033[36mmemory:\033[0m %s MiB / %s MiB (%s%%)",
+		fmt.Sprintf(yellow+"memory:\033[0m %s MiB / %s MiB (%s%%)",
 			information.UsedMemory,
 			information.TotalMemory,
 			information.UsedMemoryPercent,

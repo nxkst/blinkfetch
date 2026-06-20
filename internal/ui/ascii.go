@@ -2,26 +2,22 @@ package ui
 
 import (
 	_ "embed"
-	"fmt"
 	"strings"
-)
-
-const (
-	reset = "\033[0m"
-	cyan  = "\033[36m"
 )
 
 //go:embed assets/tux.txt
 var asciiArt string
 
 func FormatASCII() string {
-	lines := strings.Split(asciiArt, "\n")
+	c1 := "\x1b[90m" // gray
+	c2 := "\x1b[97m" // white
+	c3 := "\x1b[33m" // yellow
 
-	var b strings.Builder
+	reset := "\x1b[0m"
 
-	for _, line := range lines {
-		fmt.Fprintf(&b, "%s%s%s\n", cyan, line, reset)
-	}
+	asciiArt = strings.ReplaceAll(asciiArt, "$1", c1)
+	asciiArt = strings.ReplaceAll(asciiArt, "$2", c2)
+	asciiArt = strings.ReplaceAll(asciiArt, "$3", c3)
 
-	return b.String()
+	return asciiArt + reset
 }
