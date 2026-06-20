@@ -21,3 +21,9 @@ git clone https://github.com/nxkst/blinkfetch.git
 cd blinkfetch
 go install ./cmd/blinkfetch
 ```
+
+Ensure that your Go bin directory is in your path.
+Add the following line to your shell's configuration file (~/.bashrc, ~/.zshrc, etc.):
+```bash
+export PATH="$PATH:$(go env GOPATH)/bin"
+```
