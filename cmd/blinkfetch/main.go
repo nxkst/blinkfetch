@@ -31,6 +31,11 @@ func main() {
 		fmt.Sprintf("\033[36mshell:\033[0m %s",
 			information.Shell,
 		),
+		fmt.Sprintf("\033[36mmemory:\033[0m %s MiB / %s MiB (%s%%)",
+			information.UsedMemory,
+			information.TotalMemory,
+			information.UsedMemoryPercent,
+		),
 	}
 
 	fmt.Print(ui.FormatOutput(ASCIIArt, header, info))
