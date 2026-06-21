@@ -7,32 +7,34 @@ import (
 )
 
 func main() {
-	ASCIIArt := ui.FormatASCII()
 	yellow := "\x1b[33m"
+	reset := "\033[0m"
+
+	ASCIIArt := ui.FormatASCII()
 
 	header := fmt.Sprintf(
-		"\033[0m%s@%s",
+		reset+"%s@%s",
 		information.Username, information.Hostname,
 	)
 
 	info := []string{
 		"──────────────",
-		fmt.Sprintf(yellow+"os:\033[0m %s",
+		fmt.Sprintf(yellow+"os:"+reset+" %s",
 			information.Distro,
 		),
-		fmt.Sprintf(yellow+"kernel:\033[0m %s",
+		fmt.Sprintf(yellow+"kernel:"+reset+" %s",
 			information.Kernel,
 		),
-		fmt.Sprintf(yellow+"uptime:\033[0m %s",
+		fmt.Sprintf(yellow+"uptime:"+reset+" %s",
 			information.FormattedUptime,
 		),
-		fmt.Sprintf(yellow+"de:\033[0m %s",
+		fmt.Sprintf(yellow+"de:"+reset+" %s",
 			information.Desktop,
 		),
-		fmt.Sprintf(yellow+"shell:\033[0m %s",
+		fmt.Sprintf(yellow+"shell:"+reset+" %s",
 			information.Shell,
 		),
-		fmt.Sprintf(yellow+"memory:\033[0m %s MiB / %s MiB (%s%%)",
+		fmt.Sprintf(yellow+"memory:"+reset+" %s MiB / %s MiB (%s%%)",
 			information.UsedMemory,
 			information.TotalMemory,
 			information.UsedMemoryPercent,
