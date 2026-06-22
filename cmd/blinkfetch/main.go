@@ -12,6 +12,8 @@ func main() {
 
 	ASCIIArt := ui.FormatASCII()
 
+	information.InitModules()
+
 	header := fmt.Sprintf(
 		reset+"%s@%s",
 		information.Username, information.Hostname,

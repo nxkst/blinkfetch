@@ -5,5 +5,9 @@ import "os/user"
 func GetUsername() (string, error) {
 	username, err := user.Current()
 
-	return username.Username, err
+	if err != nil {
+		return "", err
+	}
+
+	return username.Username, nil
 }

@@ -8,5 +8,9 @@ import (
 func GetKernel() (string, error) {
 	kernel, err := os.ReadFile("/proc/sys/kernel/osrelease")
 
-	return strings.TrimSpace(string(kernel)), err
+	if err != nil {
+		return "", err
+	}
+
+	return strings.TrimSpace(string(kernel)), nil
 }

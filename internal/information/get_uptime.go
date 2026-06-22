@@ -5,5 +5,9 @@ import "os"
 func GetUptime() (string, error) {
 	uptime, err := os.ReadFile("/proc/uptime")
 
-	return string(uptime), err
+	if err != nil {
+		return "", err
+	}
+
+	return string(uptime), nil
 }
