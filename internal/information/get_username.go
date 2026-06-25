@@ -3,11 +3,11 @@ package information
 import "os/user"
 
 func GetUsername() (string, error) {
-	username, err := user.Current()
+	u, err := user.Current()
 
 	if err != nil {
 		return "", err
 	}
 
-	return username.Username, nil
+	return u.Username, nil
 }
