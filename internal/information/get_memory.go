@@ -2,8 +2,9 @@ package information
 
 import (
 	"fmt"
-	"github.com/shirou/gopsutil/v4/mem"
 	"math"
+
+	"github.com/shirou/gopsutil/v4/mem"
 )
 
 const MiB = 1024 * 1024

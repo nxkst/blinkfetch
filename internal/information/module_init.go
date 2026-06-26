@@ -1,8 +1,9 @@
 package information
 
 import (
-	"github.com/nxkst/blinkfetch/internal/ui"
 	"log"
+
+	"github.com/nxkst/blinkfetch/internal/ui"
 )
 
 func InitModules() {
