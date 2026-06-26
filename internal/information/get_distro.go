@@ -1,9 +1,16 @@
 package information
 
-import "github.com/Hayao0819/go-distro"
+import (
+	"fmt"
 
-func GetDistro() string {
+	"github.com/Hayao0819/go-distro"
+)
+
+func GetDistro() (string, error) {
 	distro := distro.GetDetail().FullName()
+	if distro == "" {
+		return "", fmt.Errorf("couldn't fetch distro name")
+	}
 
-	return distro
+	return distro, nil
 }

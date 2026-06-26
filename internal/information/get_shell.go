@@ -1,9 +1,15 @@
 package information
 
-import "os"
+import (
+	"fmt"
+	"os"
+)
 
-func GetShell() string {
+func GetShell() (string, error) {
 	shell := os.Getenv("SHELL")
+	if shell == "" {
+		return "", fmt.Errorf("couldn't fetch shell")
+	}
 
-	return shell
+	return shell, nil
 }

@@ -17,7 +17,10 @@ func InitModules() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	Distro = GetDistro()
+	Distro, err = GetDistro()
+	if err != nil {
+		log.Fatal(err)
+	}
 	Kernel, err = GetKernel()
 	if err != nil {
 		log.Fatal(err)
@@ -27,8 +30,14 @@ func InitModules() {
 		log.Fatal(err)
 	}
 	FormattedUptime = ui.FormatTime(Uptime)
-	Desktop = GetDesktop()
-	Shell = GetShell()
+	Desktop, err = GetDesktop()
+	if err != nil {
+		log.Fatal(err)
+	}
+	Shell, err = GetShell()
+	if err != nil {
+		log.Fatal(err)
+	}
 	UsedMemory, TotalMemory, UsedMemoryPercent, err = GetMemory()
 	if err != nil {
 		log.Fatal(err)
