@@ -6,40 +6,34 @@ import (
 	"github.com/nxkst/blinkfetch/internal/ui"
 )
 
-func InitModules() {
-	var err error
+func must[T any](val T, err error) T {
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	Username, err = GetUsername()
+	return val
+}
+
+func mustMemory() (used, total, usedPercent string) {
+	used, total, usedPercent, err := GetMemory()
+
 	if err != nil {
 		log.Fatal(err)
 	}
-	Hostname, err = GetHostname()
-	if err != nil {
-		log.Fatal(err)
-	}
-	Distro, err = GetDistro()
-	if err != nil {
-		log.Fatal(err)
-	}
-	Kernel, err = GetKernel()
-	if err != nil {
-		log.Fatal(err)
-	}
-	Uptime, err = GetUptime()
-	if err != nil {
-		log.Fatal(err)
-	}
+
+	return used, total, usedPercent
+}
+
+func InitModules() {
+	Username = must(GetUsername())
+	Hostname = must(GetHostname())
+	Distro = must(GetDistro())
+	Kernel = must(GetKernel())
+	Uptime = must(GetUptime())
+	Desktop = must(GetDesktop())
+	Shell = must(GetShell())
+
+	UsedMemory, TotalMemory, UsedMemoryPercent = mustMemory()
+
 	FormattedUptime = ui.FormatTime(Uptime)
-	Desktop, err = GetDesktop()
-	if err != nil {
-		log.Fatal(err)
-	}
-	Shell, err = GetShell()
-	if err != nil {
-		log.Fatal(err)
-	}
-	UsedMemory, TotalMemory, UsedMemoryPercent, err = GetMemory()
-	if err != nil {
-		log.Fatal(err)
-	}
 }
